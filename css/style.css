@@ -1,0 +1,15 @@
+.success {
+    text-decoration: line-through;
+}
+
+.control {
+    display: inline;
+}
+
+.total_value {
+    display: inline;
+}
+
+.deleteAll {
+    display: block;
+}
