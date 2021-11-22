@@ -6,19 +6,33 @@ const deleteAll = document.querySelector('.deleteAll');
 
 let totalArrey = [];
 
-
+function clickPress(event) {
+    if (event.keyCode == 13) {
+        addTask();
+    }
+}
 
 function createTask(value) {
     const task = document.createElement('div');
     const check = document.createElement('input');
+    const deleteTask = document.createElement('button');
     task.textContent = value;
     task.classList.add('wraperTask');
     check.type = 'checkbox';
     check.classList.add('status');
     task.appendChild(check);
+    deleteTask.type = 'button';
+    deleteTask.textContent = 'delete';
+    task.appendChild(deleteTask);
+    deleteTask.classList.add('delete_some_task')
     totalArrey.push(task);
     total_value.innerHTML = totalArrey.length;
     check.addEventListener('click', completeTask);
+    deleteTask.addEventListener('click', () => {
+        list.removeChild(task)
+        totalArrey.pop(task);
+        total_value.innerHTML = totalArrey.length;
+    });
     return task;
 }
 
@@ -44,6 +58,7 @@ function deleteAlltask() {
     totalArrey.length = 0;
     total_value.innerHTML = totalArrey.length;
 }
+
 
 button.addEventListener('click', addTask);
 deleteAll.addEventListener('click', deleteAlltask);
