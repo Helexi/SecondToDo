@@ -1,10 +1,16 @@
+// основные константы, взяты из html
+
 const field = document.querySelector('.field');
 const button = document.querySelector('.add');
 const list = document.querySelector('.list');
 let total_value = document.querySelector('.total_value');
 const deleteAll = document.querySelector('.deleteAll');
 
+// массив для подсчёта общего количество дел
+
 let totalArrey = [];
+
+// функция для того, чтобы по энтеру можно было нажимать на кнопку
 
 function clickPress(event) {
     if (event.keyCode == 13) {
@@ -12,7 +18,13 @@ function clickPress(event) {
     }
 }
 
+// функция создаёт новый блок в котором введённые 
+// дела пользователя + кнопки и чекбокс
+
 function createTask(value) {
+
+    // создал константы (в дальнейшем они поввляюстся на странице)
+
     const task = document.createElement('div');
     const check = document.createElement('input');
     const deleteTask = document.createElement('button');
@@ -25,9 +37,18 @@ function createTask(value) {
     deleteTask.textContent = 'delete';
     task.appendChild(deleteTask);
     deleteTask.classList.add('delete_some_task')
+
+    // добавляем в массив каждое из дел
+
     totalArrey.push(task);
     total_value.innerHTML = totalArrey.length;
+
+    // клил на чекбокс
+
     check.addEventListener('click', completeTask);
+
+    // клик на удаление конкретного дела
+
     deleteTask.addEventListener('click', () => {
         list.removeChild(task)
         totalArrey.pop(task);
@@ -36,6 +57,9 @@ function createTask(value) {
     return task;
 }
 
+// проверяет если есть значение в инпуте, 
+// то добавляет в функцию createTask значение
+
 function addTask() {
     if (field.value) {
         const newTask = createTask(field.value);
@@ -43,6 +67,8 @@ function addTask() {
         field.value = "";
     }
 }
+
+// реакция на чекбокс, если нажат - то добавить стиль, если нет - удалить
 
 function completeTask(event) {
     const target = event.target;
@@ -53,12 +79,15 @@ function completeTask(event) {
     }
 }
 
+// удалить всё задания
+
 function deleteAlltask() {
     list.innerHTML = "";
     totalArrey.length = 0;
     total_value.innerHTML = totalArrey.length;
 }
 
+// событие клил на кнопку "+" и на кнопку "delete all"
 
 button.addEventListener('click', addTask);
 deleteAll.addEventListener('click', deleteAlltask);
