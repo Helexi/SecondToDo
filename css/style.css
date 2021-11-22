@@ -1,3 +1,8 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
 .success {
     text-decoration: line-through;
 }
@@ -12,4 +17,50 @@
 
 .deleteAll {
     display: block;
+    margin-top: 20 px;
+}
+
+.block {
+    margin-top: 100px;
+    text-align: center;
+    padding-top: 100 px;
+}
+
+.deleteAll {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 20px;
+}
+
+.field {
+    border: none;
+    border: 1px solid;
+    background-color: cornsilk;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.add,
+.deleteAll {
+    border-radius: 10px;
+    background-color: cyan;
+    padding: 0px 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.add:hover,
+.deleteAll:hover {
+    background-color: cornsilk;
+}
+
+.add {
+    margin-bottom: 20px;
+}
+
+.wraperTask {
+    margin: 0px 20px 20px 20px;
+    border: 1px solid;
+    border-radius: 10px;
 }
