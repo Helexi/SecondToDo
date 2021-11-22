@@ -43,7 +43,7 @@ function createTask(value) {
     totalArrey.push(task);
     total_value.innerHTML = totalArrey.length;
 
-    // клил на чекбокс
+    // клик на чекбокс
 
     check.addEventListener('click', completeTask);
 
