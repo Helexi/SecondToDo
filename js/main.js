@@ -40,7 +40,7 @@ function createTask(value) {
 
     // добавляем в массив каждое из дел
 
-    totalArrey.push(value);
+    totalArrey.push(task);
     total_value.innerHTML = totalArrey.length;
 
     // клик на чекбокс
@@ -54,13 +54,7 @@ function createTask(value) {
         totalArrey.pop(task);
         total_value.innerHTML = totalArrey.length;
     });
-
-// localStorage.setItem('todo', JSON.stringify(totalArrey))
-// console.log(localStorage.getItem('todo', JSON.stringify(totalArrey)));
-
-if ()
-
-    return task;
+    return task
 }
 
 
